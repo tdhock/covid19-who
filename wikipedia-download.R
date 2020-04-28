@@ -1,7 +1,4 @@
-works_with_R(
-  "3.6.3",
-  data.table="1.12.8",
-  rvest="0.3.5")
+source("packages.R")
 
 u <- "https://en.wikipedia.org/wiki/2019%E2%80%9320_coronavirus_pandemic_deaths"
 local.html <- file.path(

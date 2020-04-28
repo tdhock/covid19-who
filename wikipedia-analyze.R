@@ -1,7 +1,4 @@
-works_with_R(
-  "3.6.3",
-  ggplot2="3.3.0",
-  data.table="1.12.8")
+source("packages.R")
 
 out.csv.vec <- Sys.glob("wikipedia/*.csv")
 
@@ -45,11 +42,12 @@ gg <- ggplot()+
     date.POSIXct, new.deaths, color=country, shape=day),
     data=one.day)+
   coord_cartesian(xlim=c(some.range[1], xmax))+
-  scale_x_datetime(breaks=seq(some.range[1], some.range[2], l=5))
+  scale_x_datetime(
+    breaks=seq(some.range[1], some.range[2], l=5),
+    date_labels="%d %b")
 dl <- directlabels::direct.label(gg, "last.polygons")
-
 dl.log <- dl+scale_y_log10()
-png("wikipedia-analyze.png", width=6, height=6, units="in", res=100)
+png("wikipedia-analyze.png", width=10, height=6, units="in", res=100)
 print(dl.log)
 dev.off()
 
