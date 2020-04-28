@@ -1,0 +1,14 @@
+** 27 Apr 2020
+
+Primary source data from PDFs are linked from [[https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports][situation reports web page]].
+- [[file:situation-reports-download.R]]
+- [[file:situation-reports-parse.R]]
+
+Secondary source [[https://en.wikipedia.org/wiki/2019%25E2%2580%259320_coronavirus_pandemic_deaths][wikipedia]] has easy to parse tables.
+- [[file:wikipedia-download.R]]
+- [[file:wikipedia-analyze.R]] plotting
+
+[[file:wikipedia-analyze.png]]
+
+Not used, but could be an interesting regex exercise:
+- [[file:wikipedia-source-download.R]]
