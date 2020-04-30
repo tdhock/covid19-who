@@ -5,8 +5,11 @@ out.csv.vec <- Sys.glob("wikipedia/*.csv")
 out.csv <- out.csv.vec[length(out.csv.vec)]
 count.dt <- data.table::fread(out.csv)
 count.dt[, date.POSIXct := as.POSIXct(date.POSIXct)]
-
-some.dt <- count.dt[country %in% c("France", "Japan", "Canada", "USA")]
+my.countries <- c(
+  "France", "Japan", "Canada", "USA")
+more.countries <- c("China", "India", "Brazil")
+show.countries <- my.countries
+some.dt <- count.dt[country %in% show.countries]
 some.range <- range(some.dt$date.POSIXct)
 xmax <- some.range[2]+(some.range[2]-some.range[1])*0.15
 gg <- ggplot()+

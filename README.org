@@ -3,11 +3,22 @@ Have we reached the peak of the curve?
 Analysis of COVID19 death counts reported by the World Health
 Organization, and downloaded from Wikipedia.
 
-[[file:wikipedia-analyze.png]]
+** 30 Apr 2020
+
+[[file:wikipedia-population-analyze.R]] makes plots of deaths per million
+population in each country, which makes it apparent that the death
+RATE is actually larger in France than in USA (even though the total
+number of deaths in USA is larger).
+
+[[file:wikipedia-population-analyze-cum.png]]
+
+and
+
+[[file:wikipedia-population-analyze.png]]
 
 ** 28 Apr 2020
 
-[[file:Makefile]] downloads/analyzes data from wikipedia.
+[[file:Makefile]] downloads/analyzes new data from wikipedia.
 
 ** 27 Apr 2020
 
@@ -18,6 +29,8 @@ Primary source data from PDFs are linked from [[https://www.who.int/emergencies/
 Secondary source [[https://en.wikipedia.org/wiki/2019%25E2%2580%259320_coronavirus_pandemic_deaths][wikipedia]] has easy to parse tables.
 - [[file:wikipedia-download.R]]
 - [[file:wikipedia-analyze.R]] plotting
+
+[[file:wikipedia-analyze.png]]
 
 Not used, but could be an interesting regex exercise:
 - [[file:wikipedia-source-download.R]]
