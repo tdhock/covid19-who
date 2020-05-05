@@ -3,6 +3,12 @@ Have we reached the peak of the curve?
 Analysis of COVID19 death counts reported by the World Health
 Organization, and downloaded from Wikipedia.
 
+** 1 May 2020
+
+Why are the WHO numbers only about 50k for USA but the radio/google
+says 60k? Maybe another data set is used?
+https://github.com/CSSEGISandData/COVID-19
+
 ** 30 Apr 2020
 
 [[file:wikipedia-population-analyze.R]] makes plots of deaths per million

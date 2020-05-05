@@ -16,13 +16,14 @@ count.dt.list <- list()
 for(tbl.i in seq_along(tbl.list)){
   df <- tbl.list[[tbl.i]]
   if(names(df)[[1]] == "Date"){
-    ref.i <- which(df$Date=="References")
+    ref.i <- max(which(df$Date%in%c("References", "")))
     last.country <- ref.i-1
     country.dt <- data.table(df[1:last.country,])[Date!=""]
     country.tall <- melt(country.dt, measure.vars=3:ncol(country.dt))
     count.dt.list[[paste(tbl.i)]] <- country.tall
   }
 }
+
 count.dt <- do.call(rbind, count.dt.list)
 Sys.setlocale(locale="C")
 strftime(Sys.time(), "%b_%d")

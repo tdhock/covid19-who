@@ -15,7 +15,7 @@ most.recent <- pop.dt[
 per.cap.rank <- most.recent[order(cum.deaths.per.capita)]
 per.cap.rank[, percentile := (1:.N)/.N]
 my.countries <- c(
-  "France", "Japan", "Canada", "USA")
+  "France", "Japan", "Canada", "USA", "Switzerland", "Austria")
 more.countries <- c("China", "India", "Brazil")
 show.countries <- my.countries
 some.rank <- per.cap.rank[show.countries, on="country"]
@@ -93,13 +93,16 @@ gg <- ggplot()+
     "Cumulative death counts and rates due to COVID19,",
     "source: WHO/wikipedia"))
 print(gg)
+width <- 10
+height <- 8
 png(
   "wikipedia-population-analyze-cum.png",
-  width=10, height=6, units="in", res=100)
+  width=width, height=height, units="in", res=100)
 print(gg)
 dev.off()
 
 new.dt <- some.dt[order(date.POSIXct), .(
+  cum.deaths,
   new.deaths=c(cum.deaths[1], diff(cum.deaths)),
   date.POSIXct
 ), by=.(country, population)]
@@ -146,7 +149,7 @@ print(dl)
 
 png(
   "wikipedia-population-analyze.png",
-  width=10, height=6, units="in", res=100)
+  width=width, height=height, units="in", res=100)
 print(dl)
 dev.off()
 
