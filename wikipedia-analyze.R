@@ -18,7 +18,8 @@ gg <- ggplot()+
     data=some.dt)+
   coord_cartesian(xlim=c(some.range[1], xmax))+
   scale_x_datetime(breaks=seq(some.range[1], some.range[2], l=5))
-directlabels::direct.label(gg, "last.polygons")
+my.method <- list(cex=1, "last.polygons")
+directlabels::direct.label(gg, my.method)
 
 gg <- ggplot()+
   geom_line(aes(
@@ -27,7 +28,7 @@ gg <- ggplot()+
   coord_cartesian(xlim=c(some.range[1], xmax))+
   scale_x_datetime(breaks=seq(some.range[1], some.range[2], l=5))+
   scale_y_log10()
-directlabels::direct.label(gg, "last.polygons")
+directlabels::direct.label(gg, my.method)
 
 new.dt <- some.dt[order(date.POSIXct), .(
   new.deaths=c(cum.deaths[1], diff(cum.deaths)),
@@ -48,7 +49,7 @@ gg <- ggplot()+
   scale_x_datetime(
     breaks=seq(some.range[1], some.range[2], l=5),
     date_labels="%d %b")
-dl <- directlabels::direct.label(gg, "last.polygons")
+dl <- directlabels::direct.label(gg, my.method)
 dl.log <- dl+scale_y_log10()
 png("wikipedia-analyze.png", width=10, height=6, units="in", res=100)
 print(dl.log)

@@ -3,6 +3,36 @@ Have we reached the peak of the curve?
 Analysis of COVID19 death counts reported by the World Health
 Organization, and downloaded from Wikipedia.
 
+** 6 May 2020
+
+[[file:wikipedia-population-analyze.R]] makes new plots with more countries:
+
+[[file:wikipedia-population-analyze-selected-countries.png]]
+
+[[file:wikipedia-population-analyze-cum-selected-countries.png]]
+
+Explanation of decreasing cumulative death counts for USA on 4 May.
+Situation report from [[https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200504-covid-19-sitrep-105.pdf?sfvrsn=4cdda8af_2][4 May]] says
+
+#+BEGIN_SRC 
+Due to the recent trend of countries conducting data reconciliation
+exercises which remove large numbers of cases or deaths from their
+total counts, WHO will now display such data as negativenumbers in the
+“new cases” / “new deaths” columns as appropriate. This will aid
+readers in identifying when such reconciliation exercises have taken
+place. When additional details become available in future which allow
+the subtractions to be apportioned to previous days, numbers will be
+updated accordingly. Prior situation reports will not be
+retrospectively updated; the most up-to-date data can always be found
+at covid19.who.int
+...
+United States of America data retro-adjusted by national authorities.
+#+END_SRC
+
+Applied correction by taking cummin from most recent to earliest data,
+in order to get cumulative death curves that are always increasing,
+and new death counts per day which are non-negative.
+
 ** 1 May 2020
 
 Why are the WHO numbers only about 50k for USA but the radio/google
@@ -32,7 +62,7 @@ Primary source data from PDFs are linked from [[https://www.who.int/emergencies/
 - [[file:situation-reports-download.R]]
 - [[file:situation-reports-parse.R]]
 
-Secondary source [[https://en.wikipedia.org/wiki/2019%25E2%2580%259320_coronavirus_pandemic_deaths][wikipedia]] has easy to parse tables.
+Secondary source [[https://en.wikipedia.org/wiki/COVID-19_pandemic_deaths][wikipedia]] has easy to parse tables.
 - [[file:wikipedia-download.R]]
 - [[file:wikipedia-analyze.R]] plotting
 
