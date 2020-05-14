@@ -52,9 +52,13 @@ works_with_R <- function(Rvers,...){
     }
   }
 }
+options(repos=c(
+  "http://cloud.r-project.org",
+  "http://www.bioconductor.org/packages/release/bioc"))
 works_with_R(
-  "3.6.3",
+  "4.0.0",
   ggplot2="3.3.0",
   data.table="1.12.8",
-  rvest="0.3.5")
+  rvest="0.3.5",
+  directlabels="2020.1.31")
 options(bitmapType="cairo")
